@@ -14,19 +14,3 @@ AOS.init({
   anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 });
-
-var $d = $( ".art" ), 
-    tallestDivHeight = 0
-
-
-$d.each(function (i, v) {
-    var $t = $(this), 
-        thisDivsHeight = $t.outerHeight()
-
-    console.log(thisDivsHeight)
-
-    if(thisDivsHeight > tallestDivHeight) tallestDivHeight = thisDivsHeight
-})
-
-
-$d.css('height', tallestDivHeight)
