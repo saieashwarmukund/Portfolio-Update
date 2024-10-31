@@ -209,6 +209,18 @@ img {
 }
 
 
-.carousel-item {
+#carouselExampleIndicators .carousel-item {
+    position: relative;
     width: 100%;
+    padding-top: 133%; /* 16:9 Aspect Ratio (9/16 = 0.5625 * 100) */
+    overflow: hidden;
+}
+
+#carouselExampleIndicators .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without stretching */
 }
