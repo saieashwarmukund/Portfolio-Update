@@ -254,128 +254,158 @@
         <!-- //REVIEWS -->
 
         <!-- MORE -->
-        <section id="more" class="full-height px-lg-5">
+        <section id="more" class="full-height px-lg-5 py-5">
             <div class="container">
-        
                 <div class="row pb-4" data-aos="fade-up">
                     <div class="col-lg-8">
                         <h6 class="text-brand">MORE</h6>
                         <h1>My Interests and Hobbies</h1>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <!-- Toggle Buttons -->
-                    <div class="btn-group mb-4" role="group" aria-label="More section toggles">
-                        <button type="button" class="btn btn-primary" onclick="showContent('music')">Music</button>
-                        <button type="button" class="btn btn-primary" onclick="showContent('art')">Art</button>
-                        <button type="button" class="btn btn-primary" onclick="showContent('games')">Games</button>
-                    </div>
-
-                    <!-- Music Content -->
-                    <div class="more-content" id="music">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-image rounded-4">
-                                <img class="rounded-4" src="./assets/images/singing.jpg" alt="">
-                                <img class="rounded-4" src="./assets/images/tabla.jpg" alt="">
-                            </div>
-                            <div class="card-custom-content p-4">
-                                <h5 class="mb-4">Music</h5>
-                                <p> 
-                                    I have always been passionate about music. Throughout my youth, I learned to sing South Indian Classical (Carnatic) music and play the Tabla. I continue practicing these interests in my own free time.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Art Content -->
-                    <div class="more-content d-none" id="art">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner rounded-4">
-                                    <div class="art carousel-item active">
-                                    <img src="./assets/images/Art/Korok Forest Framed.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Moo.F.O.JPG" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/MindBlown.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/MindGrown.JPG" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Game of Thrones.JPG" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Chance Portrait for Yash.JPG" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Iron Man.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Spider-Man.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Graffiti Tiger.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Cascades.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/Krishna.jpg" class="d-block w-100" alt="...">
-                                    </div>
-
-                                    <div class="art carousel-item">
-                                    <img src="./assets/images/Art/50 Years of Human Space Flight.jpg" class="d-block w-100" alt="...">
-                                    </div>
+        
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs mb-4" id="interestsTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="music-tab" data-bs-toggle="tab" data-bs-target="#music" type="button" role="tab" aria-controls="music" aria-selected="true">Music</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="art-tab" data-bs-toggle="tab" data-bs-target="#art" type="button" role="tab" aria-controls="art" aria-selected="false">Art</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="games-tab" data-bs-toggle="tab" data-bs-target="#games" type="button" role="tab" aria-controls="games" aria-selected="false">Games</button>
+                    </li>
+                </ul>
+        
+                <!-- Tab Content -->
+                <div class="tab-content pt-4" id="interestsTabContent">
+                    <!-- Music Section -->
+                    <div class="tab-pane fade show active" id="music" role="tabpanel" aria-labelledby="music-tab">
+                        <div class="row gy-4 align-items-start">
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-custom rounded-4 bg-base shadow-effect p-4">
+                                    <h5 class="mb-4">Music</h5>
+                                    <p>
+                                        I have always been passionate about music - throughout my youth,
+                                        I learned to sing South Indian Classical (Carnatic) music
+                                        and to play the Tabla, or North Indian drums.
+                                        I continue practicing these interests in my own free time,
+                                        as music tends to be one of my personal stress-relievers from daily life.
+                                    </p>
                                 </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                                <img src="./assets/images/tabla.jpg" class="img-fluid rounded-4 mt-4" alt="Tabla">
                             </div>
-                            <div class="card-custom-content p-4">
-                                <h5 class="mb-4">Art</h5>
-                                <p>
-                                    Drawing and painting have been sources of creativity and expression for me. 
-                                    Please feel free to check out my 
-                                    <a href="https://www.instagram.com/artsyfartsyeashu/" class="link-custom">Instagram Art Portfolio</a>
-                                    for more.
-                                </p>
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./assets/images/singing.jpg" class="img-fluid rounded-4" alt="Singing">
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Games Content -->
-                    <div class="more-content d-none" id="games">
-                        <div class="card-custom rounded-4 bg-base shadow-effect">
-                            <div class="card-custom-content p-4">
-                                <h5 class="mb-4">Games</h5>
-                                <p>
-                                    Description about games goes here.
-                                </p>
+        
+                    <!-- Art Section -->
+                    <div class="tab-pane fade" id="art" role="tabpanel" aria-labelledby="art-tab">
+                        <div class="row gy-4 align-items-start">
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-custom rounded-4 bg-base shadow-effect p-4">
+                                    <h5 class="mb-4">Art</h5>
+                                    <p>
+                                        Drawing and painting have been main sources of creativity and expression to me ever since I can remember.
+                                        Browse through some of my artwork in the slideshow to the left
+                                        and please feel free to check out my
+                                        <a href="https://www.instagram.com/artsyfartsyeashu/" class="link-custom">Instagram Art Portfolio</a>
+                                        to see more.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <!-- Carousel for Art Images -->
+                                <div id="artCarousel" class="carousel slide rounded-4" data-bs-ride="carousel">
+                                    <div class="carousel-inner rounded-4">
+                                        <div class="art carousel-item active">
+                                        <img src="./assets/images/Art/Korok Forest Framed.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Moo.F.O.JPG" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/MindBlown.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/MindGrown.JPG" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Game of Thrones.JPG" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Chance Portrait for Yash.JPG" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Iron Man.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Spider-Man.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Graffiti Tiger.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+                                        
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Cascades.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/Krishna.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+    
+                                        <div class="art carousel-item">
+                                        <img src="./assets/images/Art/50 Years of Human Space Flight.jpg" class="d-block w-100 art-image" alt="...">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#artCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#artCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Games Section -->
+                    <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab">
+                        <div class="row gy-4 align-items-start">
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-custom rounded-4 bg-base shadow-effect p-4">
+                                    <h5 class="mb-4">Games</h5>
+                                    <p>
+                                        Games have been a fun part of my life and I enjoy exploring new games across various genres.
+                                        Playing games lets me unwind and enjoy the thrill of challenges and achievements.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./assets/images/games.jpg" class="img-fluid rounded-4" alt="Games Image">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <!-- //MORE -->
+
+
+  
+
 
         <!-- CONTACT -->
         <section id="contact" class="full-height px-lg-5">
