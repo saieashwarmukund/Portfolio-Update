@@ -1,10 +1,11 @@
-window.addEventListener('resize', () => {
-    const carouselImages = document.querySelectorAll('#carouselExampleIndicators .carousel-item img');
-    const maxHeight = 800; // Adjust the max height as needed
-
-    carouselImages.forEach(img => {
-        const width = img.parentElement.clientWidth;
-        img.style.width = `${width}px`;
-        img.style.height = `${Math.min(img.naturalHeight, maxHeight)}px`;
+function showContent(id) {
+    // Hide all content sections
+    document.querySelectorAll('.more-content').forEach(content => {
+        content.classList.remove('active');
+        content.classList.add('d-none');
     });
-});
+
+    // Show the selected content section
+    document.getElementById(id).classList.remove('d-none');
+    document.getElementById(id).classList.add('active');
+}
