@@ -248,3 +248,37 @@ img {
 .nav-link:hover {
     color: var(--color-brand);
 }
+
+
+/* General Tab Navigation Styling */
+#interestsTab {
+    font-family: var(--font-base);
+    background-color: var(--color-base);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Tab Buttons */
+#interestsTab .nav-link {
+    color: var(--color-body);
+    background-color: var(--color-base2);
+    border: none;
+    border-radius: 8px;
+    margin-right: 5px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tab Button Hover */
+#interestsTab .nav-link:hover {
+    background-color: var(--color-brand2);
+    color: var(--color-base2);
+}
+
+/* Active Tab Button */
+#interestsTab .nav-link.active {
+    background-color: var(--color-brand);
+    color: var(--color-base2);
+    font-weight: 600;
+}
