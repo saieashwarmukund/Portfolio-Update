@@ -265,7 +265,7 @@
         
                 <!-- Centered Tab Navigation -->
                 <div class="row">
-                    <div class="col-md-6 mx-auto">
+                    <div class="col-md-12 mx-auto">
                         <ul class="nav nav-tabs mb-4" id="interestsTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="music-tab" data-bs-toggle="tab" data-bs-target="#music" type="button" role="tab" aria-controls="music" aria-selected="true">Music</button>
@@ -284,7 +284,8 @@
                 <div class="tab-content pt-4" id="interestsTabContent">
                     <!-- Music Section -->
                     <div class="tab-pane fade show active" id="music" role="tabpanel" aria-labelledby="music-tab">
-                        <div class="row gy-4 d-flex align-items-end">
+                        <div class="row gy-4">
+                            <!-- Left Column -->
                             <div class="col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="300">
                                 <div class="card-custom rounded-4 bg-base shadow-effect p-4 mb-4">
                                     <h5 class="mb-4">Music</h5>
@@ -298,27 +299,19 @@
                                 </div>
                                 <img src="./assets/images/tabla.jpg" class="img-fluid rounded-4 mt-auto" alt="Tabla">
                             </div>
-                            <div class="col-md-6 mx-auto d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                                <img src="./assets/images/singing.jpg" class="img-fluid rounded-4" alt="Singing">
+
+                            <!-- Right Column - Singing Image (Top to Bottom) -->
+                            <div class="col-md-6 mx-auto d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./assets/images/singing.jpg" class="img-fluid rounded-4 h-100 w-100" style="object-fit: cover;" alt="Singing">
                             </div>
                         </div>
                     </div>
+
         
                     <!-- Art Section -->
                     <div class="tab-pane fade" id="art" role="tabpanel" aria-labelledby="art-tab">
                         <div class="row gy-4 align-items-start">
-                            <div class="col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="300">
-                                <div class="card-custom rounded-4 bg-base shadow-effect p-4">
-                                    <h5 class="mb-4">Art</h5>
-                                    <p>
-                                        Drawing and painting have been main sources of creativity and expression to me ever since I can remember.
-                                        Browse through some of my artwork in the slideshow to the left
-                                        and please feel free to check out my
-                                        <a href="https://www.instagram.com/artsyfartsyeashu/" class="link-custom">Instagram Art Portfolio</a>
-                                        to see more.
-                                    </p>
-                                </div>
-                            </div>
+                            <!-- Left Column - Art Carousel -->
                             <div class="col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="300">
                                 <!-- Carousel for Art Images -->
                                 <div id="artCarousel" class="carousel slide rounded-4" data-bs-ride="carousel">
@@ -370,8 +363,23 @@
                                     </button>
                                 </div>
                             </div>
+
+                            <!-- Right Column - Text Card -->
+                            <div class="col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card-custom rounded-4 bg-base shadow-effect p-4">
+                                    <h5 class="mb-4">Art</h5>
+                                    <p>
+                                        Drawing and painting have been main sources of creativity and expression to me ever since I can remember.
+                                        Browse through some of my artwork in the slideshow to the left
+                                        and please feel free to check out my
+                                        <a href="https://www.instagram.com/artsyfartsyeashu/" class="link-custom">Instagram Art Portfolio</a>
+                                        to see more.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
         
                     <!-- Games Section -->
                     <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab">
