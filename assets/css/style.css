@@ -108,6 +108,18 @@ img {
     color: var(--color-brand);
 }
 
+.text-brand2 {
+    color: var(--color-brand2);
+}
+
+.heading-brand {
+    color: var(--color-heading);
+}
+
+.body-brand {
+    color: var(--color-body);
+}
+
 .bg-base {
     background-color: var(--color-base);
 }
