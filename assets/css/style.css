@@ -11,6 +11,8 @@
     --font-base: "Bai Jamjuree";
 }
 
+
+/* General Navbar Styling */
 .navbar {
     background-color: var(--color-base);
 }
@@ -21,33 +23,60 @@
     color: #fff;
 }
 
-.navbar .nav-link:hover {
-    color: var(--color-brand);
-}
-
+.navbar .nav-link:hover,
 .navbar .nav-link.active {
     color: var(--color-brand);
 }
 
+
+/* Responsive styling for larger screens */
 @media (min-width: 992px) {
+    /* Sidebar styling with fixed position */
     .navbar {
         min-height: 100vh;
         width: var(--sidbar-width);
+        position: fixed; /* Keep navbar fixed on the left side */
+        top: 0;
+        left: 0;
+        background-color: var(--color-base); /* Fallback color */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Blurred background image using ::before */
+    .navbar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url(../images/sidebar-img.jpg);
         background-size: cover;
         background-position: center;
+        filter: blur(3px); /* Apply blur to the background image */
+        z-index: 1;
+    }
+
+    /* Content within the navbar, above the blurred background */
+    .navbar-brand,
+    .navbar-collapse,
+    .navbar * {
+        position: relative;
+        z-index: 2; /* Ensure navbar content stays sharp above the blurred background */
     }
 
     .navbar-brand img {
         border: 8px solid var(--color-brand);
     }
 
+    /* Offset content wrapper to make space for the fixed sidebar */
     #content-wrapper {
         padding-left: var(--sidbar-width);
     }
 }
-
-
 
 
 body {
