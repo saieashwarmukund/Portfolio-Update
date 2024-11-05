@@ -201,12 +201,28 @@ img {
 }
 
 .card-custom .card-custom-image img {
-    transition: all 0.4s ease;
+    width: 100%;
+    height: auto;
+    transform: scale(0.95); /* Start slightly scaled down */
+    transition: transform 0.4s ease; /* Smooth transition */
 }
 
 .card-custom:hover .card-custom-image img {
-    transform: scale(1.1);
+    transform: scale(1); /* Zoom to 100% on hover */
 }
+
+/* Resume Image Zoom Effect */
+#resume .card-custom .card-body img {
+    width: 100%;
+    height: auto;
+    transform: scale(0.95); /* Start at 90% scale */
+    transition: transform 0.4s ease; /* Smooth zoom transition */
+}
+
+#resume .card-custom:hover .card-body img {
+    transform: scale(1); /* Zoom to 100% on hover */
+}
+
 
 /* CONTACT */
 #contact .form-control {
