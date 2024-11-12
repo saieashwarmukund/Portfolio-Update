@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Saieashwar Mukund</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/aos.css">
@@ -166,7 +167,7 @@
                                     <h4>Research Assistant/Intern</h4>
                                     <p class="text-brand mb-2">
                                         <b>Computational Neural Data and Dynamics Lab</b> &nbsp; 
-                                        (Oct 2018 - June 2020)
+                                        (Oct 2018 - June 2019)
                                     </p>
                                     <p class="mb-0"> 
                                     </p>
@@ -179,7 +180,8 @@
         </section>
         <!-- //ABOUT -->
 
-        <!-- PROJECTS -->
+
+        <!-- //PROJECTS -->
         <section id="projects" class="full-height px-lg-5">
             <div class="container">
 
@@ -198,7 +200,7 @@
                                 <img class="rounded-4" src="./assets/images/RedMeansGo.png" alt="">
                             </div>
                             <div class="card-custom-content p-4">
-                                <p class="text-brand mb-2">May 2020</p>
+                                <p class="text-brand mb-2">June 2020</p>
                                 <h4>Red Means Go</h4>
                                 <p>Significance analysis of various extractable features in a YouTube preview thumbnail that can contribute to a video’s success and viewership. 
                                     Metadata obtained from YouTube Data API (V3). Skimage and DLib libraries used for quantifying image features and employing facial recognition.
@@ -214,7 +216,7 @@
                                 <!-- <img class="rounded-4" src="./assets/images/.png" alt=""> -->
                             </div>
                             <div class="card-custom-content p-4">
-                                <p class="text-brand mb-2">August 2018</p>
+                                <p class="text-brand mb-2">September 2018</p>
                                 <h4>BhajanBook Web Application</h4>
                                 <p>Developed a mobile-responsive online repository of devotional songs for use at local temple, 
                                     complete with user-specific favorites & playlists saving functionality
@@ -229,6 +231,33 @@
             </div>
         </section>
         <!-- //PROJECTS -->
+
+
+        <!-- //CAREER TIMELINE -->
+        <section id="timeline" class="full-height px-lg-5">
+            <div class="container">
+        
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">CODED IN PYTHON</h6>
+                        <h1>Career Timeline</h1>
+                    </div>
+                </div>
+        
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-md-12 col-lg-8" data-aos="fade-up">
+                        <div class="bg-base p-4 rounded-4 shadow-effect">
+                            <!-- Timeline container -->
+                            <container id="timeline-container">
+                                <div id="timeline-output"></div>
+                            </container>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>        
+        <!-- //CAREER TIMELINE -->
 
 
         <!-- RESUME -->
@@ -269,7 +298,7 @@
                     </div>
 
                     <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
-                        <form action="https://contact-server-cmol25ozp-saieashwar-mukunds-projects.vercel.app/contact" method="POST" class="row g-lg-3 gy-3">
+                        <form action="https://contactserver2.vercel.app/contact" method="POST" class="row g-lg-3 gy-3">
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" placeholder="Enter your name" required>
                             </div>
@@ -464,6 +493,91 @@
     <script src="./assets/js/main.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+    <!-- Script to load Python -->
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script type='text/javascript'>
+        function plot(graph, div) {
+            var figure = JSON.parse(graph);
+            
+            var layout = { 
+                title: 'Responsive to window\'s size!',
+                font: {size: 18}
+            };
+
+            var config = {responsive: true}
+
+            Plotly.newPlot(div, figure, layout, config);
+        }
+    </script>
+
+    <!-- Import the Python script for PyScript -->
+    <py-env>
+        - numpy
+        - plotly
+        - pandas
+    </py-env>
+    <py-script id="main">
+        import plotly.express as px
+        import pandas as pd
+        import datetime
+        import js
+        
+        # Set the current date in the format you want
+        present_dt = datetime.datetime.now()
+        present = str(present_dt.strftime("%Y-%m"))
+        
+        # Data
+        df = pd.DataFrame([
+            dict(Type="Education", Start='2016-09', Finish='2020-12', Title="B.S. in Data Science", Location="University of California San Diego", Notes=""),
+            dict(Type="Experience", Start='2018-10', Finish='2019-06', Title="Research Assistant/Intern", Location="Computational Neural Data and Dynamics Lab", Notes=""),
+            dict(Type="Experience", Start='2019-06', Finish='2019-08', Title="Business Intelligence Internship", Location="Alliant Insurance", Notes=""),
+            dict(Type="Experience", Start='2021-04', Finish='2022-09', Title="Business Intelligence Analyst", Location="Liftoff", Notes=""),
+            dict(Type="Experience", Start='2023-03', Finish=present, Title="Technical Analyst", Location="Coforge", Notes=""),
+            dict(Type="Projects", Start='2018-06', Finish='2018-09', Title="BhajanBook Web Application", Location="Sai Center of Tustin", Notes=""),
+            dict(Type="Projects", Start='2020-04', Finish='2020-06', Title="Red Means Go", Location="University of California San Diego", Notes="")
+        ])
+        
+        # Create the timeline plot
+        fig = px.timeline(
+            df,
+            x_start="Start",
+            x_end="Finish",
+            y="Type",
+            color="Title",
+            custom_data=['Title', 'Location', 'Start', 'Finish']
+        )
+        
+        # Reverse the y-axis so tasks are listed from top to bottom
+        fig.update_yaxes(autorange="reversed")
+        
+        # Update the hover template to display in the desired format
+        fig.update_traces(
+            hovertemplate="<b>%{customdata[0]}</b><br>" +  # Title
+                          "%{customdata[1]}<br>" +         # Location
+                          "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"  # Start Date - End Date
+        )
+        
+        
+        # Update layout for styling
+        fig.update_layout(
+            hoverlabel=dict(
+                bgcolor="white",
+                font_size=16,
+                font_family="Arial"
+            ),
+            title=None,
+            showlegend=False,
+            xaxis_title=None,
+            yaxis_title=None
+        )
+        
+        #fig.show()
+        js.plot(fig.to_json(), "timeline-output")
+
+    </py-script>
 
 
 </body>
