@@ -14,3 +14,8 @@ AOS.init({
   anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
 });
+
+function flipCard() {
+  const card = document.querySelector('.flip-card');
+  card.classList.toggle('flipped');
+}
