@@ -237,8 +237,9 @@
 
 
         <!-- //CAREER TIMELINE -->
-        <section id="timeline" class="full-height px-lg-5">
+        <section id="projects" class="full-height px-lg-5">
             <div class="container">
+
                 <div class="row pb-4" data-aos="fade-up">
                     <div class="col-lg-8">
                         <h6 class="text-brand">CODED IN PYTHON</h6>
@@ -247,11 +248,19 @@
                 </div>
 
                 <div class="row gy-4 justify-content-center">
-                    <div class="col-md-12 col-lg-8" data-aos="fade-up">
-                        <div class="flip-card">
+                    <div class="col-md-12 col-lg-10" data-aos="fade-up" style="height: 300px;">
+                        <div class="flip-card"> 
                             <div class="flip-card-inner">
                                 <!-- Front Side of the Card (Python Code) -->
-                                <div class="flip-card-front bg-base p-4 rounded-4 shadow-effect">
+                                <div class="flip-card-front bg-base p-4 rounded-4 shadow-effect" style="height: 400px;">
+                                    <!-- Timeline content displayed on flip -->
+                                    <container id="timeline-container">
+                                        <div id="timeline-output"></div>
+                                    </container>
+                                    <button onclick="flipCard()">Go Back</button>
+                                </div>
+                                <!-- Back Side of the Card (Timeline Output) -->
+                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect" style="max-height: 400px; overflow-y: auto; max-width: 100%; overflow-x:scroll;">
                                     <pre>
                                         <code class="python">
                                             import plotly.express as px
@@ -264,24 +273,24 @@
                                             present = str(present_dt.strftime("%Y-%m"))
                                             
                                             # Data
-                                            df = pd.DataFrame([
-                                                dict(Type="Education", Start='2016-09', Finish='2020-12', Title="B.S. in Data Science", Location="University of California San Diego", Notes=""),
-                                                dict(Type="Experience", Start='2018-10', Finish='2019-06', Title="Research Assistant/Intern", Location="Computational Neural Data and Dynamics Lab", Notes=""),
-                                                dict(Type="Experience", Start='2019-06', Finish='2019-08', Title="Business Intelligence Internship", Location="Alliant Insurance", Notes=""),
-                                                dict(Type="Experience", Start='2021-04', Finish='2022-09', Title="Business Intelligence Analyst", Location="Liftoff", Notes=""),
-                                                dict(Type="Experience", Start='2023-03', Finish=present, Title="Technical Analyst", Location="Coforge", Notes=""),
-                                                dict(Type="Projects", Start='2018-06', Finish='2018-09', Title="BhajanBook Web Application", Location="Sai Center of Tustin", Notes=""),
-                                                dict(Type="Projects", Start='2020-04', Finish='2020-06', Title="Red Means Go", Location="University of California San Diego", Notes="")
-                                            ])
+                                            data = [['Education', '2016-09', '2020-12', "B.S. in Data Science", "University of California San Diego"],
+                                                    ['Experience', '2018-10', '2019-06', "Research Assistant/Intern", "Computational Neural Data and Dynamics Lab"],
+                                                    ['Experience', '2019-06', '2019-08', "Business Intelligence Internship", "Alliant Insurance"],
+                                                    ['Experience', 2021-04', '2022-09', "Business Intelligence Analyst", "Liftoff"],
+                                                    ['Experience', '2023-03', present, "Technical Analyst", "Coforge"],
+                                                    ['Project', '2018-06', '2018-09', "BhajanBook Web Application", "Sai Center of Tustin"],
+                                                    ['Project', '2020-04', '2020-06', "Red Means Go", "University of California San Diego"]]
+                                    
+                                            df = pd.DataFrame(data, columns=['Type', 'Start', 'End', 'Title', 'Location'])
                                             
                                             # Create the timeline plot
                                             fig = px.timeline(
                                                 df,
                                                 x_start="Start",
-                                                x_end="Finish",
+                                                x_end="End",
                                                 y="Type",
                                                 color="Title",
-                                                custom_data=['Title', 'Location', 'Start', 'Finish']
+                                                custom_data=['Title', 'Location', 'Start', 'End']
                                             )
                                             
                                             # Reverse the y-axis so tasks are listed from top to bottom
@@ -289,14 +298,15 @@
                                             
                                             # Update the hover template to display in the desired format
                                             fig.update_traces(
-                                                hovertemplate="<b>%{customdata[0]} | </b><br>" +
-                                                              "%{customdata[1]} | <br>" +
-                                                              "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"
+                                                hovertemplate="<b>%{customdata[0]} | </b><br>" +  # Title
+                                                              "%{customdata[1]} | <br>" +         # Location
+                                                              "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"  # Start Date - End Date
                                             )
                                             
                                             
                                             # Update layout for styling
                                             fig.update_layout(
+                                                height=360, 
                                                 hoverlabel=dict(
                                                     bgcolor="white",
                                                     font_size=16,
@@ -313,15 +323,6 @@
                                         </code>
                                     </pre>
                                     <button onclick="flipCard()">Show Timeline</button>
-                                </div>
-
-                                <!-- Back Side of the Card (Timeline Output) -->
-                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect">
-                                    <!-- Timeline content displayed on flip -->
-                                    <container id="timeline-container">
-                                        <div id="timeline-output"></div>
-                                    </container>
-                                    <button onclick="flipCard()">Go Back</button>
                                 </div>
                             </div>
                         </div>
@@ -606,7 +607,6 @@
         present_dt = datetime.datetime.now()
         present = str(present_dt.strftime("%Y-%m"))
         
-        # Data
         df = pd.DataFrame([
             dict(Type="Education", Start='2016-09', Finish='2020-12', Title="B.S. in Data Science", Location="University of California San Diego", Notes=""),
             dict(Type="Experience", Start='2018-10', Finish='2019-06', Title="Research Assistant/Intern", Location="Computational Neural Data and Dynamics Lab", Notes=""),
@@ -640,6 +640,7 @@
         
         # Update layout for styling
         fig.update_layout(
+            height=360, 
             hoverlabel=dict(
                 bgcolor="white",
                 font_size=16,
