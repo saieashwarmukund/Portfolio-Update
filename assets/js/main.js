@@ -19,3 +19,5 @@ function flipCard() {
   const card = document.querySelector('.flip-card');
   card.classList.toggle('flipped');
 }
+
+document.getElementById('loading-message').style.display = 'none';

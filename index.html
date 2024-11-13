@@ -240,7 +240,7 @@
         <section id="projects" class="full-height px-lg-5">
             <div class="container">
 
-                <div class="row pb-4" data-aos="fade-up">
+                <div class="row pb-4 pt-1" data-aos="fade-up">
                     <div class="col-lg-8">
                         <h6 class="text-brand">CODED IN PYTHON</h6>
                         <h1>Career Timeline</h1>
@@ -248,20 +248,21 @@
                 </div>
 
                 <div class="row gy-4 justify-content-center">
-                    <div class="col-md-12 col-lg-8" data-aos="fade-up" style="height: 300px;">
+                    <div class="col-md-12 col-lg-8" data-aos="fade-up">
                         <div class="flip-card"> 
                             <div class="flip-card-inner">
                                 <!-- Front Side of the Card (Python Code) -->
-                                <div class="flip-card-front bg-base p-4 rounded-4 shadow-effect" style="height: 400px;">
+                                <div class="flip-card-front bg-base p-4 rounded-4 shadow-effect" style="height: 500px;">
                                     <!-- Timeline content displayed on flip -->
-                                    <container class="rounded-4" id="timeline-container">
+                                    <container class="rounded-4" id="timeline-container" style="height: 360px;">
                                         <div id="timeline-output"></div>
                                     </container>
+                                    <br>
                                     <button class="btn btn-brand" onclick="flipCard()">Show Python Code</button>
                                 </div>
                                 
                                 <!-- Back Side of the Card (Timeline Output) -->
-                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect" style="max-height: 400px; overflow-y: auto; max-width: 100%; overflow-x: hidden;">
+                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect" style="max-height: 500px; overflow-y: auto; max-width: 100%; overflow-x: hidden;">
                                     <pre style="white-space: pre-wrap; word-break: break-word; font-size: calc(10px + 0.33vw);">
                                         <code class="python">
 import plotly.express as px
