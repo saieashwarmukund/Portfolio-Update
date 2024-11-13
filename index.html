@@ -248,82 +248,87 @@
                 </div>
 
                 <div class="row gy-4 justify-content-center">
-                    <div class="col-md-12 col-lg-10" data-aos="fade-up" style="height: 300px;">
+                    <div class="col-md-12 col-lg-8" data-aos="fade-up" style="height: 300px;">
                         <div class="flip-card"> 
                             <div class="flip-card-inner">
                                 <!-- Front Side of the Card (Python Code) -->
                                 <div class="flip-card-front bg-base p-4 rounded-4 shadow-effect" style="height: 400px;">
                                     <!-- Timeline content displayed on flip -->
-                                    <container id="timeline-container">
+                                    <container class="rounded-4" id="timeline-container">
                                         <div id="timeline-output"></div>
                                     </container>
-                                    <button onclick="flipCard()">Go Back</button>
+                                    <button class="btn btn-brand" onclick="flipCard()">Show Python Code</button>
                                 </div>
+                                
                                 <!-- Back Side of the Card (Timeline Output) -->
-                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect" style="max-height: 400px; overflow-y: auto; max-width: 100%; overflow-x:scroll;">
-                                    <pre>
+                                <div class="flip-card-back bg-base p-4 rounded-4 shadow-effect" style="max-height: 400px; overflow-y: auto; max-width: 100%; overflow-x: hidden;">
+                                    <pre style="white-space: pre-wrap; word-break: break-word; font-size: calc(10px + 0.33vw);">
                                         <code class="python">
-                                            import plotly.express as px
-                                            import pandas as pd
-                                            import datetime
-                                            import js
-                                            
-                                            # Set the current date in the format you want
-                                            present_dt = datetime.datetime.now()
-                                            present = str(present_dt.strftime("%Y-%m"))
-                                            
-                                            # Data
-                                            data = [['Education', '2016-09', '2020-12', "B.S. in Data Science", "University of California San Diego"],
-                                                    ['Experience', '2018-10', '2019-06', "Research Assistant/Intern", "Computational Neural Data and Dynamics Lab"],
-                                                    ['Experience', '2019-06', '2019-08', "Business Intelligence Internship", "Alliant Insurance"],
-                                                    ['Experience', 2021-04', '2022-09', "Business Intelligence Analyst", "Liftoff"],
-                                                    ['Experience', '2023-03', present, "Technical Analyst", "Coforge"],
-                                                    ['Project', '2018-06', '2018-09', "BhajanBook Web Application", "Sai Center of Tustin"],
-                                                    ['Project', '2020-04', '2020-06', "Red Means Go", "University of California San Diego"]]
-                                    
-                                            df = pd.DataFrame(data, columns=['Type', 'Start', 'End', 'Title', 'Location'])
-                                            
-                                            # Create the timeline plot
-                                            fig = px.timeline(
-                                                df,
-                                                x_start="Start",
-                                                x_end="End",
-                                                y="Type",
-                                                color="Title",
-                                                custom_data=['Title', 'Location', 'Start', 'End']
-                                            )
-                                            
-                                            # Reverse the y-axis so tasks are listed from top to bottom
-                                            fig.update_yaxes(autorange="reversed")
-                                            
-                                            # Update the hover template to display in the desired format
-                                            fig.update_traces(
-                                                hovertemplate="<b>%{customdata[0]} | </b><br>" +  # Title
-                                                              "%{customdata[1]} | <br>" +         # Location
-                                                              "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"  # Start Date - End Date
-                                            )
-                                            
-                                            
-                                            # Update layout for styling
-                                            fig.update_layout(
-                                                height=360, 
-                                                hoverlabel=dict(
-                                                    bgcolor="white",
-                                                    font_size=16,
-                                                    font_family="Arial"
-                                                ),
-                                                title=None,
-                                                showlegend=False,
-                                                xaxis_title=None,
-                                                yaxis_title=None
-                                            )
-                                            
-                                            #fig.show()
-                                            js.plot(fig.to_json(), "timeline-output")
+import plotly.express as px
+import pandas as pd
+import datetime
+import js
+
+# Set the current date in the format you want
+present_dt = datetime.datetime.now()
+present = str(present_dt.strftime("%Y-%m"))
+
+# Data
+data = [['Education', '2016-09', '2020-12', "B.S. in Data Science", "University of California San Diego"],
+        ['Experience', '2018-10', '2019-06', "Research Assistant/Intern", "Computational Neural Data and Dynamics Lab"],
+        ['Experience', '2019-06', '2019-08', "Business Intelligence Internship", "Alliant Insurance"],
+        ['Experience', '2021-04', '2022-09', "Business Intelligence Analyst", "Liftoff"],
+        ['Experience', '2023-03', present, "Technical Analyst", "Coforge"],
+        ['Project', '2018-06', '2018-09', "BhajanBook Web Application", "Sai Center of Tustin"],
+        ['Project', '2020-04', '2020-06', "Red Means Go", "University of California San Diego"]]
+
+df = pd.DataFrame(data, columns=['Type', 'Start', 'End', 'Title', 'Location'])
+
+
+# Create the timeline plot
+fig = px.timeline(
+    df,
+    x_start="Start",
+    x_end="End",
+    y="Type",
+    color="Title",
+    custom_data=['Title', 'Location', 'Start', 'End']
+)
+
+# Reverse the y-axis so tasks are listed from top to bottom
+fig.update_yaxes(autorange="reversed")
+
+# Update the hover template to display in the desired format
+fig.update_traces(
+    hovertemplate="<b>%{customdata[0]} | </b><br>" +
+                    "%{customdata[1]} | <br>" +
+                    "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"
+)
+
+
+fig.update_layout(
+    autosize=True,
+    minreducedwidth=240,
+    minreducedheight=240,
+    height=360,
+    hoverlabel=dict(
+        bgcolor="white",
+        font_size=16,
+        font_family="Arial"
+    ),
+    title=None,
+    showlegend=False,
+    xaxis_title=None,
+    yaxis_title=None
+)
+
+#fig.show()
+js.plot(fig.to_json(), "timeline-output")
                                         </code>
                                     </pre>
-                                    <button onclick="flipCard()">Show Timeline</button>
+                                    <button class="btn btn-brand" onclick="flipCard()">Show Timeline</button>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -579,17 +584,19 @@
     <script type='text/javascript'>
         function plot(graph, div) {
             var figure = JSON.parse(graph);
-            
+    
+            var config = { responsive: true };
+    
+            // Setting layout to dynamically adjust to the container
             var layout = { 
-                title: 'Responsive to window\'s size!',
-                font: {size: 18}
+                autosize: true,
+                margin: {l: 20, r: 20, t: 20, b: 20},  // Adjust margins to fit well within the card
             };
-
-            var config = {responsive: true}
-
+    
             Plotly.newPlot(div, figure, layout, config);
         }
     </script>
+    
 
     <!-- Import the Python script for PyScript -->
     <py-env>
@@ -607,24 +614,26 @@
         present_dt = datetime.datetime.now()
         present = str(present_dt.strftime("%Y-%m"))
         
-        df = pd.DataFrame([
-            dict(Type="Education", Start='2016-09', Finish='2020-12', Title="B.S. in Data Science", Location="University of California San Diego", Notes=""),
-            dict(Type="Experience", Start='2018-10', Finish='2019-06', Title="Research Assistant/Intern", Location="Computational Neural Data and Dynamics Lab", Notes=""),
-            dict(Type="Experience", Start='2019-06', Finish='2019-08', Title="Business Intelligence Internship", Location="Alliant Insurance", Notes=""),
-            dict(Type="Experience", Start='2021-04', Finish='2022-09', Title="Business Intelligence Analyst", Location="Liftoff", Notes=""),
-            dict(Type="Experience", Start='2023-03', Finish=present, Title="Technical Analyst", Location="Coforge", Notes=""),
-            dict(Type="Projects", Start='2018-06', Finish='2018-09', Title="BhajanBook Web Application", Location="Sai Center of Tustin", Notes=""),
-            dict(Type="Projects", Start='2020-04', Finish='2020-06', Title="Red Means Go", Location="University of California San Diego", Notes="")
-        ])
+        # Data
+        data = [['Education', '2016-09', '2020-12', "B.S. in Data Science", "University of California San Diego"],
+                ['Experience', '2018-10', '2019-06', "Research Assistant/Intern", "Computational Neural Data and Dynamics Lab"],
+                ['Experience', '2019-06', '2019-08', "Business Intelligence Internship", "Alliant Insurance"],
+                ['Experience', '2021-04', '2022-09', "Business Intelligence Analyst", "Liftoff"],
+                ['Experience', '2023-03', present, "Technical Analyst", "Coforge"],
+                ['Project', '2018-06', '2018-09', "BhajanBook Web Application", "Sai Center of Tustin"],
+                ['Project', '2020-04', '2020-06', "Red Means Go", "University of California San Diego"]]
+        
+        df = pd.DataFrame(data, columns=['Type', 'Start', 'End', 'Title', 'Location'])
+        
         
         # Create the timeline plot
         fig = px.timeline(
             df,
             x_start="Start",
-            x_end="Finish",
+            x_end="End",
             y="Type",
             color="Title",
-            custom_data=['Title', 'Location', 'Start', 'Finish']
+            custom_data=['Title', 'Location', 'Start', 'End']
         )
         
         # Reverse the y-axis so tasks are listed from top to bottom
@@ -632,15 +641,17 @@
         
         # Update the hover template to display in the desired format
         fig.update_traces(
-            hovertemplate="<b>%{customdata[0]} | </b><br>" +  # Title
-                          "%{customdata[1]} | <br>" +         # Location
-                          "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"  # Start Date - End Date
+            hovertemplate="<b>%{customdata[0]} | </b><br>" +
+                          "%{customdata[1]} | <br>" +
+                          "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"
         )
         
         
-        # Update layout for styling
         fig.update_layout(
-            height=360, 
+            autosize=True,
+            minreducedwidth=240,
+            minreducedheight=240,
+            height=360,
             hoverlabel=dict(
                 bgcolor="white",
                 font_size=16,
@@ -654,7 +665,7 @@
         
         #fig.show()
         js.plot(fig.to_json(), "timeline-output")
-
+        
     </py-script>
 
 
