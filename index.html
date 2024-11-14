@@ -301,8 +301,8 @@ fig.update_yaxes(autorange="reversed")
 
 # Update the hover template to display in the desired format
 fig.update_traces(
-    hovertemplate="<b>%{customdata[0]} | </b><br>" +
-                    "%{customdata[1]} | <br>" +
+    hovertemplate="<b>%{customdata[0]} | </b>" +
+                    "%{customdata[1]} | " +
                     "%{base|%b %Y} - %{x|%b %Y}<extra></extra>"
 )
 
