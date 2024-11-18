@@ -15,6 +15,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar">
@@ -42,21 +45,21 @@
                         <a class="nav-link" href="#resume">Resume</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#more">More</a>
                     </li>
                     <li>
                         <div class="col-auto">
-                            <div class="social-icons">
+                            <div class="social-icons top-row">
                                 <a href="https://github.com/saieashwarmukund"><i class="lab la-github"></i></a>
                                 <a href="https://www.linkedin.com/in/sai-mukund/"><i class="lab la-linkedin"></i></a>
+                                <a href="mailto:saieashwar@gmail.com"><i class="las la-envelope"></i></a>
+                            </div>
+                            <div class="social-icons bottom-row">
                                 <a href="https://x.com/itssaieashwar"><i class="lab la-twitter"></i></a>
                                 <a href="https://www.instagram.com/itssaieashwar/"><i class="lab la-instagram"></i></a>
                             </div>
                         </div>
-                    </li>
+                    </li>                             
                 </ul>
             </div>
         </div>
@@ -236,6 +239,33 @@
         <!-- //PROJECTS -->
 
 
+
+        <!-- RESUME -->
+        <section id="resume" class="full-height px-lg-5">
+            <div class="container">
+
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-6 text-start">
+                        <h6 class="text-brand">RESUME</h6> <!-- Header aligned to the left -->
+                    </div>
+                </div>
+
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-md-8 col-lg-6" data-aos="fade-up"> <!-- Changed to col-md-10 and col-lg-8 for wider card -->
+                        <div class="card-custom rounded-4 bg-base shadow-effect text-center">
+                            <div class="card-body">
+                                <a href="./assets/images/SaieashwarMukund.pdf" target="_blank">
+                                    <img class="rounded-4 img-fluid" src="./assets/images/SaieashwarMukund.jpg" alt="Resume Thumbnail">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //RESUME -->
+
+
         <!-- //CAREER TIMELINE -->
         <section id="projects" class="full-height px-lg-5">
             <div class="container">
@@ -336,41 +366,13 @@ js.plot(fig.to_json(), "timeline-output")
                 </div>
             </div>
         </section>
-
-        <!-- Include Highlight.js for Syntax Highlighting -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
     
         <!-- //CAREER TIMELINE -->
 
 
-        <!-- RESUME -->
-        <section id="resume" class="full-height px-lg-5">
-            <div class="container">
-
-                <div class="row pb-4" data-aos="fade-up">
-                    <div class="col-lg-6 text-start">
-                        <h6 class="text-brand">RESUME</h6> <!-- Header aligned to the left -->
-                    </div>
-                </div>
-
-                <div class="row gy-4 justify-content-center">
-                    <div class="col-md-8 col-lg-6" data-aos="fade-up"> <!-- Changed to col-md-10 and col-lg-8 for wider card -->
-                        <div class="card-custom rounded-4 bg-base shadow-effect text-center">
-                            <div class="card-body">
-                                <a href="./assets/images/SaieashwarMukund.pdf" target="_blank">
-                                    <img class="rounded-4 img-fluid" src="./assets/images/SaieashwarMukund.jpg" alt="Resume Thumbnail">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- //RESUME -->
 
 
-        <!-- CONTACT -->
+        <!-- CONTACT 
         <section id="contact" class="full-height px-lg-5">
             <div class="container">
 
@@ -403,7 +405,7 @@ js.plot(fig.to_json(), "timeline-output")
                 </div>
             </div>
         </section>
-        <!-- //CONTACT -->
+        //CONTACT -->
 
 
         
